@@ -15,7 +15,7 @@ class BaseModel:
         if kwargs:
             for key, value in kwargs.items():
                 if key == "__class__":
-                    pass
+                    continue
                 elif key == "created_at" or key == "updated_at":
                     value = datetime.datetime.strptime(value, self.tformat)
                 setattr(self, key, value)
