@@ -13,10 +13,10 @@ class BaseModel:
         """constructor"""
 
         if kwargs:
-            for name, value in kwargs.items():
-                if name == "__class__":
+            for key, value in kwargs.items():
+                if key == "__class__":
                     pass
-                elif name == "created_at" or name == "updated_at":
+                elif key == "created_at" or key == "updated_at":
                     value = datetime.datetime.strptime(value, self.tformat)
                 setattr(self, key, value)
         else:
