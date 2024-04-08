@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""Base class"""
+"""Base Model"""
 import uuid
 import datetime
+import models
 
 
 class BaseModel:
@@ -23,6 +24,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.today()
             self.updated_at = datetime.datetime.today()
+            models.storage.new(self)
 
     def __str__(self):
         """str method"""
@@ -34,6 +36,7 @@ class BaseModel:
     def save(self):
         """update updated_at"""
         self.updated_at = datetime.datetime.today()
+        models.storage.save()
 
     def to_dict(self):
         """to dict method"""
