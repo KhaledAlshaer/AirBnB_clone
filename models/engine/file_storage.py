@@ -25,8 +25,10 @@ class FileStorage:
         """Save Method"""
 
         with open(FileStorage.__file_path, "w") as file:
+            ser_objects = {}
             for key, value in FileStorage.__objects.items():
-                json.dump(FileStorage.__objects, file)
+                ser_objects[key] = value.to_dict()
+            json.dump(ser_objects, file)
 
     def reload(self):
         """Reload Method"""
