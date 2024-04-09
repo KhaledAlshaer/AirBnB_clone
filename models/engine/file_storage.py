@@ -34,9 +34,9 @@ class FileStorage:
         """Reload Method"""
 
         if os.path.isfile(FileStorage.__file_path):
-        with open(FileStorage.__file_path, "r") as file:
-            data = json.load(file)
-            for key, value in data.items():
+            with open(FileStorage.__file_path, "r") as file:
+                data = json.load(file)
+                for key, value in data.items():
                 class_name, obj_id = key.split(".")
                 obj_dict = value
                 class_ = getattr(models, class_name)
