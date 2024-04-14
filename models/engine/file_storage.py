@@ -2,7 +2,7 @@
 """File Storage"""
 import json
 import os
-from models.base_model import BaseModel
+from base_model import BaseModel
 
 
 class FileStorage:
@@ -40,6 +40,6 @@ class FileStorage:
                 for key, value in data.items():
                     class_name, obj_id = key.split(".")
                     obj_dict = value
-                    class_ = getattr(models, class_name)
+                    class_ = BaseModel
                     obj = class_(**obj_dict)
                     FileStorage.__objects[key] = obj
