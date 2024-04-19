@@ -18,7 +18,10 @@ class HBNBCommand(cmd.Cmd):
 
         return True
 
+    def emptyline(self):
+        """A Method To Handle Empthy Lines"""
 
+        return
 
 
 if __name__ == '__main__':
